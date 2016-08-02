@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+typedef NS_ENUM(NSInteger, WVMode) {
+    WVDisplayDetails    = 0,
+    WVDisplayOverview   = 1
+};
+
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 
 @end

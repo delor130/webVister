@@ -12,7 +12,23 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.webView.scrollView setScrollEnabled:NO];
+    self.webView.scalesPageToFit = YES;
     // Initialization code
+}
+
+- (void)isWebViewHidden:(BOOL)isHidden
+{
+    self.webView.alpha = (isHidden) ? 0 : 1;    
+    
+}
+
+- (void)loadViewWithUrl:(NSString *)urlStr
+{
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+    
+    [self.webView loadRequest:urlRequest];
+    self.urlLabel.text = urlStr;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
